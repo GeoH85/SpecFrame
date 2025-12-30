@@ -118,6 +118,22 @@ This document contains a chronological record of all engineering decisions made 
 
 ---
 
+### [2024-12-30 22:50] Decision: Info.plist Required Bundle Keys
+
+**Context:** Sandbox crash caused by missing CFBundleIdentifier in custom Info.plist. Crash occurred in `_libsecinit_appsandbox` with error "Unable to get bundle identifier because Info.plist from code signature information has no value for kCFBundleIdentifierKey."
+**Options Considered:**
+
+1. Switch to GENERATE_INFOPLIST_FILE = YES and use INFOPLIST_KEY_ settings
+2. Add missing required keys to custom Info.plist
+
+**Decision:** Option 2 — Add missing keys to custom Info.plist.
+**Rationale:** Maintains explicit control over plist structure for UTType declarations while adding required bundle keys. Uses build setting variables (e.g., `$(PRODUCT_BUNDLE_IDENTIFIER)`) for values that should match project configuration.
+**Specification Reference:** §9.2 (UTType), §1.4 (Sandbox)
+**Interpretation Required:** No — standard required keys for macOS app bundle
+**If Yes, Interpretation Detail:** N/A
+
+---
+
 ### [2024-12-30 20:37] Decision: Folder Structure Organization
 
 **Context:** Blueprint specifies folder structure with App/, Document/, Model/, Views/, Export/, Utilities/, Resources/ subdirectories.

@@ -38,3 +38,14 @@ This document records every instance where the specification did not fully deter
 **Recommendation:** Clarification needed? N — Standard macOS document app behavior.
 
 ---
+
+### Interpretation #4
+
+**Location:** SpecFrame/Info.plist (all required bundle keys)
+**Specification Gap:** Sprint 0 Instructions provided only UTType declarations for Info.plist, not the complete set of required bundle keys (CFBundleIdentifier, CFBundleExecutable, CFBundleName, etc.).
+**Interpretation Made:** Added all standard macOS app bundle required keys: CFBundleIdentifier, CFBundleExecutable, CFBundleName, CFBundlePackageType, CFBundleVersion, CFBundleShortVersionString, CFBundleInfoDictionaryVersion, LSMinimumSystemVersion, NSPrincipalClass. Used build setting variables where appropriate.
+**Confidence:** High
+**Risk:** Low — these are standard required keys for any macOS application bundle. Without them, sandbox initialization fails.
+**Recommendation:** Clarification needed? Y — Sprint 0 Instructions should include complete Info.plist template, not just UTType sections.
+
+---

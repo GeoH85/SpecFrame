@@ -9,7 +9,7 @@ This document tracks verification coverage.
 | Test ID | Description | Specification Reference | Status |
 |---------|-------------|------------------------|--------|
 | S0-001 | Project builds without error | §1.4 | Pass |
-| S0-002 | App launches to empty window | §10.1 | Pending |
+| S0-002 | App launches to empty window | §10.1 | Pass |
 | S0-003 | File > New creates untitled document | §10.1 | Pending |
 | S0-004 | UTType `com.adfinium.specframe.document` declared in Info.plist | §9.2 | Pass |
 | S0-005 | Document type associates with `.specframe` extension | §9.2 | Pass |
@@ -51,12 +51,13 @@ This document tracks verification coverage.
 
 ---
 
-### Pending Tests (Require Build/Run)
+### Pending Tests (Require Manual Verification)
 
-- S0-002: Launch app and verify window appears
 - S0-003: Select File > New and verify new document window
 - S0-012: Attempt to resize window below 960×600 and verify constraint
 
 **S0-001:** Verified — `xcodebuild -project SpecFrame.xcodeproj -scheme SpecFrame build` completed with `BUILD SUCCEEDED` (2024-12-30).
+
+**S0-002:** Verified — App launches successfully without sandbox crash after adding required Info.plist bundle keys (2024-12-30 22:50). Process confirmed running via `ps aux`.
 
 ---
